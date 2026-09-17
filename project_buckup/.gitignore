@@ -82,3 +82,23 @@ memory/test_credentials.md
 # Mobile development
 android-sdk/
 .env
+
+# Environment
+.env
+.env.*
+
+# Database
+*.db
+
+# Generated datasets / ML outputs
+*.csv
+
+# PDF source reports
+*.pdf
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Ruff cache
+.ruff_cache/
