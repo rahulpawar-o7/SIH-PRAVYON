@@ -1,0 +1,42 @@
+Backend
+
+cd backend
+venv\Scripts\activate
+uvicorn server:app --reload --port 8000
+
+Frontend
+cd frontend
+yarn start
+
+
+1  for clean_data 
+python3 clean_data.py raw_export.csv --out cleaned_data.csv
+
+
+
+2  for feature_engineering
+python feature_engineering.py cleaned_data.csv --out features.csv
+
+
+
+3  for create_labels
+python create_labels.py features.csv --out labeled_data.csv
+
+
+4  for train_test_split
+python train_test_split.py labeled_data.csv --out-prefix split
+
+
+5  for train_model
+python train_model.py split_train.csv split_test.csv --out-model risk_model.pkl
+
+
+
+6  for explain_model
+python explain_model.py risk_model.pkl split_live.csv --out explained_live.csv
+
+
+full pipeline 
+cd backend
+venv\Scripts\activate
+python run_full_pipeline.py
